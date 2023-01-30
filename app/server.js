@@ -1,7 +1,10 @@
 const http = require("http");
-const a = "123";
+
 http
-  .createServer((req, res) => {})
+  .createServer((req, res) => {
+    res.write(`Hello ${req.method} method`);
+    res.end("\n");
+  })
   .listen(8008, () => {
-    console.log("Server start " + process.pid);
+    process.stdout.write(`Server start ${process.pid}`);
   });

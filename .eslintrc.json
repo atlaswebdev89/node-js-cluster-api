@@ -6,7 +6,9 @@
         "node":true
     },
     "extends": 
-    [   "eslint:recommended",
+    [   
+        "airbnb-base",
+        // "eslint:recommended",
         "prettier"
     ],
     "overrides": [
@@ -15,5 +17,6 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        // "no-console":"off"
     }
 }
