@@ -9,6 +9,7 @@
 		"start": "cross-env PORT=5000 npx nodemon  app/server.js",
 		"start:prod": "webpack && nodemon app-bundle/server.min.js"
 	  },
+	"type": "module",
 	"author": "",
 	"license": "ISC",
 	"dependencies": {

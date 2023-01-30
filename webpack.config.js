@@ -15,7 +15,7 @@ module.exports = {
   target: "node",
   mode: "production",
   entry: {
-    server: pathSrc + "/server.js",
+    server: `${pathSrc}/server.js`,
   },
   output: {
     path: pathDest,
