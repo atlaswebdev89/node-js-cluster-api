@@ -11,11 +11,6 @@ if (cluster.isPrimary) {
   for (let i = 0; i < numCPUs; i++) {
     const worker = cluster.fork();
 
-    worker.on("exit", () => {
-      console.log(`worker ${worker.process.pid} died`);
-      cluster.fork();
-    });
-
     worker.on("listening", () => {
       worker.send(`Hello it is Master ${process.pid}`);
     });
@@ -24,6 +19,10 @@ if (cluster.isPrimary) {
       console.log(msg);
     });
   }
+  cluster.on("exit", (worker) => {
+    console.log(`Worker ${worker.process.pid} died`);
+    cluster.fork();
+  });
 } else {
   import("./worker.js");
 }

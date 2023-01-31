@@ -3,6 +3,7 @@ import http from "node:http";
 // In this case it is an HTTP server
 http
   .createServer((req, res) => {
+    for (let y = 0; y < 1e7; y++) {}
     res.writeHead(200);
     res.end(`hello world${process.pid}\n`);
   })
