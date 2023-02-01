@@ -23,6 +23,12 @@ if (cluster.isPrimary) {
     console.log(`Worker ${worker.process.pid} died`);
     cluster.fork();
   });
+
+  // handler ctrl+c
+  process.on("SIGINT", (data) => {
+    console.log("\nSTOP");
+    process.exit();
+  });
 } else {
   import("./worker.js");
 }

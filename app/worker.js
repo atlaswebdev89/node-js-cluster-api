@@ -4,8 +4,9 @@ import http from "node:http";
 http
   .createServer((req, res) => {
     for (let y = 0; y < 1e7; y++) {}
+    console.log(`Request ${req.url}`);
     res.writeHead(200);
-    res.end(`hello world${process.pid}\n`);
+    res.end(`hello world. Pid process: ${process.pid}\n`);
   })
   .listen(8008);
 
